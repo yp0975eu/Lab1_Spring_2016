@@ -1,0 +1,278 @@
+Java Programming: Lab 1: Variables, Conditionals, Strings
+
+Instructions:
+
+1. You should complete the Essentials problems in class. Paste your code into this worksheet as directed and answer any questions in italics. At the end of class, save this worksheet and upload it to the Lab 1 dropbox. If you have not finished, upload the code that you have written at the end of class. You should finish the remaining Essential problems outside of class.
+
+2. Outside of class, work on as many Advanced problems as you can. Usually you should expect to spend 2-3 hours on these problems. Paste your code into this worksheet as directed and answer any questions in italics.  Save your work and upload this worksheet to the lab 1 dropbox before the deadline.
+
+You should comment all of your code!
+
+Essentials – Work on these in class
+
+
+Problem 1: Miles from MCTC (this is one of the problems from the slides)
+
+Ask the user how many miles they live from MCTC.
+
+Once the user has typed in their response, display "you live more than 10 miles from MCTC" if they live more than 10miles away,
+
+And, display "you live exactly 10 miles from MCTC" if they live exactly 10 miles away,
+
+And, display "you live less than 10 miles from MCTC" if they live less than 10 miles away.
+
+Use if – else if – else statements.
+
+
+Please paste your Java code here:
+
+package com.branden;
+import java.util.Scanner;
+public class Problem1 {
+
+     static void run() {
+        int distance;
+        System.out.println("How may miles do you live from MCTC");
+        Scanner scan = new Scanner(System.in);
+        while (!scan.hasNextInt()) {
+            System.out.println("Please enter a number");
+            scan.next();
+        }
+        distance = scan.nextInt();
+        if (distance > 10) {
+            System.out.println("You live more than 10 miles away.");
+        } else if (distance < 10) {
+            System.out.println("You live less than 10 miles away.");
+        } else {
+            System.out.println("You live exactly than 10 miles away.");
+        }
+        scan.close();
+     }
+}
+
+
+
+Problem 2: Windows 10 requirements (this is one of the problems from the slides)
+
+To install Windows 10, you require
+
+•	Either Windows 7  OR  Windows 8
+•	1 GHz or greater processor
+•	2 GB or more RAM
+
+Write a program that asks the user for the current version of their operating system, the CPU speed, and amount of RAM
+
+Use && and || in conditions to display a message telling the user if they are able to install Windows 10
+
+
+Please paste your Java code here:
+
+package com.branden;
+import java.util.Scanner;
+public class Problem2 {
+    static void run(){
+        String windowsVersion;
+        double cpu;
+        int ram;
+        Scanner scan = new Scanner( System.in );
+
+        System.out.println("Enter your Windows version");
+        windowsVersion = scan.nextLine();
+        System.out.println("Enter your CPU speed");
+        while ( !scan.hasNextDouble() ) {
+            System.out.println("Please enter a number with with decimal");
+        }
+        cpu = scan.nextDouble();
+        System.out.println("Please enter your ram in gigs");
+        while ( !scan.hasNextInt() ) {
+            System.out.println("Please enter your ram in gigs");
+        }
+        ram = scan.nextInt();
+
+        if ( ram > 2 && cpu > 1.0 && windowsVersion.equalsIgnoreCase("7") || windowsVersion.equalsIgnoreCase("8")){
+            System.out.println("You can install Windows 10");
+        } else {
+            System.out.println("You can't install Windows 10");
+        }
+
+        scan.close();
+    }
+
+}
+
+Problem 3: Sales Tax
+
+
+Write a program that asks the user for
+
+•	The name of a product
+•	The price of that product
+•	The sales tax rate of that product
+
+Your program should calculate and display the name and the total price of the item including sales tax.
+
+For example, a widget costs $10, and sales tax is 7%. The total price of the widget iis $10.70.
+
+Please paste your Java code here:
+
+package com.branden;
+import java.util.Scanner;
+public class Problem3 {
+    static void run(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What is the name of the product.");
+        String name = scan.nextLine();
+        double price, tax;
+        System.out.println("What is the price");
+        while( !scan.hasNextDouble() ){
+            System.out.println("Please enter a price with cents. xx.xx ");
+            scan.next();
+        }
+        price = scan.nextDouble();
+
+
+        System.out.println("What is the tax rate");
+        while( !scan.hasNextDouble() ){
+            System.out.println("Please enter a tax with decimals");
+            scan.next();
+        }
+        tax = scan.nextDouble();
+        System.out.printf("A %s costs $%.2f, and sales tax is %.2f The total price of the widget is $%.2f\n", name, price, tax,  price *= (1 + tax/100) );
+
+        scan.close();
+
+    }
+}
+
+
+
+Advanced – Work on as many problems as you can by the lab deadline
+
+
+Problem 1:
+
+Java is to JavaScript as Car is to …. what?
+
+Write a quiz program that asks the user this question, and tests if their answer is correct.  (Check slide 7 of this week's slides if you don't know).
+
+Your program should accept a correct answer in uppercase, lowercase or any combination.
+
+You should use the equals() or equalsIgnoreCase() methods to compare Strings. Using == with Strings tends to result in odd behavior.
+
+Please paste your Java code here:
+
+package com.branden;
+import java.util.Scanner;
+public class AdvancedProblem1 {
+    static void run(){
+        Scanner scan = new Scanner(System.in);
+        String answer;
+        System.out.println("Java is to JavaScript as Car is to …. what?");
+        answer = scan.nextLine();
+        if ( answer.equalsIgnoreCase("carpet") ){
+            System.out.println("You are correct!");
+        } else {
+            System.out.println("Sorry, that's not right");
+        }
+        scan.close();
+    }
+}
+
+
+Problem 2:
+
+Conditional statements. Here’s some code from today's PowerPoint:
+
+String sentence = "I'm a sentence";
+if (sentence.endsWith(".") == false) {
+	System.out.println("A sentence should end with a . ");
+}
+
+Modify this code so it prints a different message if the sentence does end with the correct character.
+
+But a sentence can also end with a ! or a ?. Please modify your program so it does not print an error message for sentences which end with ? or !
+
+-	Write two versions – one should use a single if statement with either && or || to test all conditions in one single if statement.
+
+Please paste your Java code here:
+
+-	The second version should use an if, else if, structure to check each character in turn.
+
+Please paste your Java code here:
+
+package com.branden;
+import java.util.Scanner;
+public class AdvancedProblem2 {
+    static void run() {
+        Scanner scan = new Scanner( System.in );
+        System.out.println("Enter a sentence.");
+        String sentence = scan.nextLine();
+
+        // version 1
+        if (sentence.endsWith(".") || sentence.endsWith("?") || sentence.endsWith("!")) {
+
+            System.out.println("Your sentence ends with punctuation.");
+
+        } else {
+
+            System.out.println("A sentence should end with a punctuation ");
+
+        }
+
+        // version 2
+        if ( sentence.endsWith(".")){
+
+            System.out.println("Your sentence ends with a period.");
+
+        } else if (sentence.endsWith("?")) {
+
+            System.out.println("Your sentence ends with a question.");
+
+        } else if ( sentence.endsWith("!")) {
+
+            System.out.println("Your sentence ends with exclamation.");
+
+        } else {
+
+            System.out.println("Your sentence doesn't end with punctuation.");
+        }
+    }
+}
+
+
+Question: which version do you prefer? Why?
+
+The first one. It was less code to write.
+
+
+Problem 3:
+
+Ask your user to enter a sentence.  Use String library functions to:
+
+•	Display the user's sentence in uppercase,
+•	Display the sentence again, but in all lowercase,
+•	With all of the i characters replaced by !
+•	And with all the a characters replaced by @
+
+
+Please paste your Java code here
+
+package com.branden;
+import java.util.Scanner;
+public class AdvancedProblem3 {
+    static void run(){
+        Scanner scan = new Scanner( System.in );
+        System.out.println("Enter a sentence.");
+        String sentence = scan.nextLine();
+        // uppercase
+        System.out.println(sentence.toUpperCase());
+        // lowercase
+        System.out.println(sentence.toLowerCase());
+        /// replaced i with ! and a with @
+        // replace returns a new string
+        sentence = sentence.replace('i', '!');
+        System.out.println(sentence.replace('a', '@') );
+
+    }
+}
+

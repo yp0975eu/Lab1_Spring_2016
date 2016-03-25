@@ -1,0 +1,20 @@
+-Convert between string and int-
+    int numberInt = 7;
+    String stringFromInt = Integer.toString(numberInt);
+    System.out.println(stringFromInt);
+
+    String numberString = "7";
+    int intFromString = Integer.parseInt(numberString);
+    System.out.println(intFromString);
+    //error if numberString can't be turned into an int
+
+ -Convert between string and doubles-
+
+    double numberDouble = 12.34;
+    String stringFromDouble = Double.toString(numberDouble);
+    System.out.println(stringFromDouble);
+
+    String numberString = "12.34";
+    double doubleFromString = Double.parseDouble (numberString);
+    System.out.println(doubleFromString);
+    //Again, error if numberString can't be turned into a double
